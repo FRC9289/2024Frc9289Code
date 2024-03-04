@@ -28,12 +28,12 @@ public class DriveTimed extends Command{
     @Override
     public void initialize() {
         timer.reset();
-        timer.start();
     }
 
     // Called every time the scheduler runs while the command is scheduled.
     @Override
     public void execute() {
+        timer.start();
         while(!timer.hasElapsed(_seconds))
         {
             _chassis.Drive(_turn, _direction);
