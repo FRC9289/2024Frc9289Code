@@ -38,39 +38,43 @@ public class AutoDrive extends Command {
     // Called every time the scheduler runs while the command is scheduled.
     @Override
     public void execute() {
-        autonTimer.start();
-        autonTimer.reset();
-        autonTimer.restart();
+        MovementMethods m1 = new MovementMethods(1, 0, 2);
 
-        while (!autonTimer.hasElapsed(1.5))
-        {  
-            _chassis.Drive(0, .25);
-        }
-        _chassis.Drive(0, 0);
-        autonTimer.restart();
-        while (!autonTimer.hasElapsed(1.5))
-        {  
-            _chassis.Drive(.5, 0);
-        }
-        _chassis.Drive(0, 0);
-        autonTimer.restart();
-        while (!autonTimer.hasElapsed(2))
-        {  
-            _ShootCommand.setSpeed(1.5);
-            _ShootCommand.setMotorID("B");
-            _ShootCommand.execute();
-        }
-        autonTimer.restart();
-        while (!autonTimer.hasElapsed(1))
-        {  
-            _ShootCommand.setSpeed(1);
-            _ShootCommand.setMotorID("");
-            _ShootCommand.execute();
-        }
-        _chassis.Drive(0, 0);
-        _ShootCommand.setSpeed(0);
-        _ShootCommand.execute();
-        autonTimer.stop();
+        m1.move();
+        
+    //     autonTimer.start();
+    //     autonTimer.reset();
+    //     autonTimer.restart();
+
+    //     while (!autonTimer.hasElapsed(1.5))
+    //     {  
+    //         _chassis.Drive(0, .25);
+    //     }
+    //     _chassis.Drive(0, 0);
+    //     autonTimer.restart();
+    //     while (!autonTimer.hasElapsed(1.5))
+    //     {  
+    //         _chassis.Drive(.5, 0);
+    //     }
+    //     _chassis.Drive(0, 0);
+    //     autonTimer.restart();
+    //     while (!autonTimer.hasElapsed(2))
+    //     {  
+    //         _ShootCommand.setSpeed(1.5);
+    //         _ShootCommand.setMotorID("B");
+    //         _ShootCommand.execute();
+    //     }
+    //     autonTimer.restart();
+    //     while (!autonTimer.hasElapsed(1))
+    //     {  
+    //         _ShootCommand.setSpeed(1);
+    //         _ShootCommand.setMotorID("");
+    //         _ShootCommand.execute();
+    //     }
+    //     _chassis.Drive(0, 0);
+    //     _ShootCommand.setSpeed(0);
+    //     _ShootCommand.execute();
+    //     autonTimer.stop();
     }
 
     // Called once the command ends or is interrupted.
