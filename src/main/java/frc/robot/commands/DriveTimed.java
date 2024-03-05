@@ -20,8 +20,6 @@ public class DriveTimed extends Command{
         _seconds = seconds;
         _direction = direction;
         _turn = turn;
-
-
     }
 
     // Called when the command is initially scheduled.

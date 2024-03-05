@@ -105,8 +105,6 @@ public class RobotContainer {
     // _armIn.whileTrue(new StartEndCommand(() -> _grabberArm.rotate(-0.5), () -> _grabberArm.rotate(0)));
     // _armOut.whileTrue(new StartEndCommand(() -> _grabberArm.rotate(0.5), () -> _grabberArm.rotate(0)));
     // _armUpLock.whileTrue(new StartEndCommand(() -> _grabberArm.rotate(-0.08),() -> _grabberArm.rotate(0)));
-    
-
 
     // _wheels.setDefaultCommand(new GrabberWheelsCommand(_wheels, -0.2));
     // _wheelIn.whileTrue(new GrabberWheelsCommand(_wheels, -0.45));
