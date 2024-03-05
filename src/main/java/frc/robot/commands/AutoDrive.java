@@ -38,8 +38,9 @@ public class AutoDrive extends Command {
     // Called every time the scheduler runs while the command is scheduled.
     @Override
     public void execute() {
-        MovementMethods m1 = new MovementMethods(1, 0, 2);
-
+        MovementMethods m1 = new MovementMethods(_chassis);
+        m1.setSpeed(.5);
+        m1.setTime(1);
         m1.move();
         
     //     autonTimer.start();

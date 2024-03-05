@@ -74,9 +74,10 @@ private DifferentialDrive _drive = new DifferentialDrive(_frontRight, _frontLeft
     Drive(-axis0, axis5);
   }
 
-  public void autoDrive(double turn, double direction, double speed)
+  public void autoDrive(double turn, double direction)
   {
-    _drive.arcadeDrive(turn, direction * speed);
+    //_drive.arcadeDrive(turn, direction);
+    _drive.arcadeDrive(turn, direction);
     _drive.feed();
   }
   
