@@ -42,18 +42,18 @@ public class AutoDrive extends Command {
         autonTimer.reset();
         autonTimer.restart();
 
-        // while (!autonTimer.hasElapsed(1.5))
-        // {  
-        //     _chassis.Drive(0, .25);
-        // }
-        // _chassis.Drive(0, 0);
-        // autonTimer.restart();
-        // while (!autonTimer.hasElapsed(1.5))
-        // {  
-        //     _chassis.Drive(.5, 0);
-        // }
-        // _chassis.Drive(0, 0);
-        // autonTimer.restart();
+        while (!autonTimer.hasElapsed(1.5))
+        {  
+            _chassis.Drive(0, .25);
+        }
+        _chassis.Drive(0, 0);
+        autonTimer.restart();
+        while (!autonTimer.hasElapsed(1.5))
+        {  
+            _chassis.Drive(.5, 0);
+        }
+        _chassis.Drive(0, 0);
+        autonTimer.restart();
         while (!autonTimer.hasElapsed(2))
         {  
             _ShootCommand.setSpeed(1.5);
