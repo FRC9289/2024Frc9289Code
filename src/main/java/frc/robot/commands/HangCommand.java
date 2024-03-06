@@ -16,9 +16,9 @@ public class HangCommand extends Command{
         addRequirements(_hangMotor);
    } 
 
-//    @Override
-//    public void execute()
-//    {
-//         Hanger.move(power);
-//    }
+   @Override
+   public void execute()
+   {
+        hangMotor.move(power);
+   }
 }

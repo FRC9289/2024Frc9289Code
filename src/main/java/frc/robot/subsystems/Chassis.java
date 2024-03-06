@@ -71,7 +71,7 @@ private DifferentialDrive _drive = new DifferentialDrive(_frontRight, _frontLeft
     double axis5 = controller.getRawAxis(5);
     SmartDashboard.putNumber("axis 0", axis0);
     SmartDashboard.putNumber("axis 5", axis5);
-    Drive(-axis0, axis5);
+    Drive(axis5, -axis0);
   }
 
   public void autoDrive(double turn, double direction)

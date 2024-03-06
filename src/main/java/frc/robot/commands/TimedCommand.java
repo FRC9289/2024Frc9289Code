@@ -13,8 +13,6 @@ public class TimedCommand extends Command {
         _seconds = seconds;
         _command = command;
         timer = new Timer();
-
-
     }
 
     @Override
