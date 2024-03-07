@@ -12,6 +12,7 @@ public class AutoDrive extends Command {
 
     Chassis _chassis;
     ArmShootCommand _ShootCommand;
+    ArmShooter _ArmShooter;
     Timer autonTimer = new Timer();
     // Timer timer;
 
@@ -43,6 +44,9 @@ public class AutoDrive extends Command {
         m1.setTime(1);
         m1.move();
         
+        ShootMethods s1 = new ShootMethods(_chassis, _ArmShooter);
+        s1.setSpeed(1);
+        s1.shootHigh();
     //     autonTimer.start();
     //     autonTimer.reset();
     //     autonTimer.restart();

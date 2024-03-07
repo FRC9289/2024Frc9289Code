@@ -18,7 +18,7 @@ public class ShootMethods {
         this._chassis = _Chassis;
         this._ArmShooter = _ArmShooter;
     }
-    public ShootMethods (Chassis _Chassis) {
+    public ShootMethods (Chassis _Chassis, ArmShooter _ArmShooter) {
         this.speed = 0;
         this.time = 0;
         this._chassis = _Chassis;
@@ -39,27 +39,22 @@ public class ShootMethods {
         double time = this.time;
         double speed = this.speed;
 
-        //         autonTimer.start();
-        // autonTimer.reset();
-        // autonTimer.restart();
-
-        // while (!autonTimer.hasElapsed(1.5))
-        // {  
-        //     _chassis.Drive(0, .25);
-        // }
-        // _chassis.Drive(0, 0);
+        timer.reset();
         timer.start();
-        timer.reset();
-        timer.restart();
-
-        while (!timer.hasElapsed(time))
-        {  
-            _chassis.autoDrive(0, .4);
+        time = .75;
+        while(!timer.hasElapsed(time))
+        {
+            ArmShootCommand _Command = new ArmShootCommand(_ArmShooter, speed, "B");
+            _Command.execute();
         }
-        _chassis.autoDrive(0, 0);
-
-        timer.stop();
         timer.reset();
+        timer.start();
+        time = .65;
+        while (!timer.hasElapsed(time)) 
+        {
+            ArmShootCommand _Command = new ArmShootCommand(_ArmShooter, speed);
+            _Command.execute();    
+        }
     }
     //turn a certain num of degrees method
     public void turn(){
