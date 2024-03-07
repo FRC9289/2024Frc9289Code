@@ -23,7 +23,7 @@ public class RobotContainer {
   private final Joystick _chassisController = new Joystick(0);
   private final Joystick _armController = new Joystick(1);
   private final ArmShooter _shooter = new ArmShooter();
-  private final Hanger _hanger = new Hanger();
+  // private final Hanger _hanger = new Hanger();
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -45,7 +45,7 @@ public class RobotContainer {
   private void configureBindings() 
   {
     _shooter.setDefaultCommand(new ArmShooterDefaultCommand(_shooter, _armController));
-    _hanger.setDefaultCommand(new HangDefaultCommand(_hanger, _armController));
+    // _hanger.setDefaultCommand(new HangDefaultCommand(_hanger, _armController));
   }
 
   /**

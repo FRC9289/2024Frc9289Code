@@ -22,7 +22,7 @@ public class ArmShooterDefaultCommand extends Command {
         
         if(_joystick.getRawAxis(3) > 0)
         {
-            ArmShootCommand _command = new ArmShootCommand(_shooter, _joystick.getRawAxis(3) * 0.25);
+            ArmShootCommand _command = new ArmShootCommand(_shooter, _joystick.getRawAxis(3) * 0.19);
             _command.execute();
         }
         else if(_joystick.getRawAxis(2) > 0)
@@ -36,7 +36,7 @@ public class ArmShooterDefaultCommand extends Command {
             _command.execute();
         }
         else if(_joystick.getRawButton(3))
-        {
+        {           
             shooterTimer.reset();
             shooterTimer.start();
             while(!shooterTimer.hasElapsed(0.75))
