@@ -10,10 +10,10 @@ public class ArmShooterDefaultCommand extends Command {
     ArmShooter _shooter;
     Joystick _joystick;
     Timer shooterTimer = new Timer();
-    ShootMethods _method;
+    ArmShootMethods _shooterMethods;
 
     public ArmShooterDefaultCommand(ArmShooter shooter, Joystick _controller) {
-        _method = new ShootMethods(shooter);
+        _shooterMethods = new ArmShootMethods(shooter);
         _shooter = shooter;
         _joystick = _controller;
         addRequirements(_shooter);
@@ -24,20 +24,20 @@ public class ArmShooterDefaultCommand extends Command {
 
         // slowly out
         if (_joystick.getRawAxis(CommandConstants.AxisRightTrigger) > 0) {
-            _method.shoot(_joystick.getRawAxis(CommandConstants.AxisRightTrigger) * 0.35);
+            _shooterMethods.shoot(_joystick.getRawAxis(CommandConstants.AxisRightTrigger) * 0.35);
         }
         // intake
         else if (_joystick.getRawAxis(CommandConstants.AxisLeftTrigger) > 0) {
-            _method.shoot(-_joystick.getRawAxis(CommandConstants.AxisLeftTrigger) * 0.5);
+            _shooterMethods.shoot(-_joystick.getRawAxis(CommandConstants.AxisLeftTrigger) * 0.5);
         } 
         else if (_joystick.getRawButton(CommandConstants.ButtonA)) {
-            _method.shootAmp();
+            _shooterMethods.shootAmp();
         } 
         else if (_joystick.getRawButton(CommandConstants.ButtonX)) {
-            _method.shootSpeaker();
+            _shooterMethods.shootSpeaker();
         } 
         else {
-            _method.stop();
+            _shooterMethods.stop();
         }
     }
 

@@ -3,11 +3,11 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.Timer;
 import frc.robot.subsystems.ArmShooter;
 
-public class ShootMethods {
+public class ArmShootMethods {
     ArmShooter _ArmShooter;
     Timer timer = new Timer();
 
-    public ShootMethods (ArmShooter _ArmShooter) {
+    public ArmShootMethods (ArmShooter _ArmShooter) {
         this._ArmShooter = _ArmShooter;
     }
 
