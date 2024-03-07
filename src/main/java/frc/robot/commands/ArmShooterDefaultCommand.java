@@ -22,7 +22,7 @@ public class ArmShooterDefaultCommand extends Command {
         
         if(_joystick.getRawAxis(3) > 0)
         {
-            ArmShootCommand _command = new ArmShootCommand(_shooter, _joystick.getRawAxis(3) * 0.75);
+            ArmShootCommand _command = new ArmShootCommand(_shooter, _joystick.getRawAxis(3) * 0.5);
             _command.execute();
         }
         else if(_joystick.getRawAxis(2) > 0)
