@@ -51,7 +51,6 @@ public class ArmShooterDefaultCommand extends Command {
                 ArmShootCommand _Command = new ArmShootCommand(_shooter, 1);
                 _Command.execute();    
             }
-            
         }
         else{
             ArmShootCommand _command = new ArmShootCommand(_shooter, 0);
