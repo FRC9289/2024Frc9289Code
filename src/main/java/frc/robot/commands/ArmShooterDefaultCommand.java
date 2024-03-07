@@ -10,8 +10,10 @@ public class ArmShooterDefaultCommand extends Command {
     ArmShooter _shooter;
     Joystick _joystick;
     Timer shooterTimer = new Timer();
+    ShootMethods _method;
 
     public ArmShooterDefaultCommand(ArmShooter shooter, Joystick _controller) {
+        _method = new ShootMethods(shooter);
         _shooter = shooter;
         _joystick = _controller;
         addRequirements(_shooter);
@@ -19,43 +21,23 @@ public class ArmShooterDefaultCommand extends Command {
 
     @Override
     public void execute() {
-        
-        if(_joystick.getRawAxis(3) > 0)
-        {
-            ArmShootCommand _command = new ArmShootCommand(_shooter, _joystick.getRawAxis(3) * 0.19);
-            _command.execute();
-        }
-        else if(_joystick.getRawAxis(2) > 0)
-        {
-            ArmShootCommand _command = new ArmShootCommand(_shooter, -_joystick.getRawAxis(2) * 0.5);
-            _command.execute();
-        }
-        else if(_joystick.getRawButton(6))  
-        {
-            ArmShootCommand _command = new ArmShootCommand(_shooter, 0.35);
-            _command.execute();
-        }
-        else if(_joystick.getRawButton(3))
-        {           
-            shooterTimer.reset();
-            shooterTimer.start();
-            while(!shooterTimer.hasElapsed(0.75))
-            {
-                ArmShootCommand _Command = new ArmShootCommand(_shooter, 1, "B");
-                _Command.execute();
-            }
-            shooterTimer.reset();
-            shooterTimer.start();
-            while (!shooterTimer.hasElapsed(0.65)) 
-            {
-                ArmShootCommand _Command = new ArmShootCommand(_shooter, 1);
-                _Command.execute();    
-            }
-        }
-        else{
-            ArmShootCommand _command = new ArmShootCommand(_shooter, 0);
-            _command.execute();
 
+        // slowly out
+        if (_joystick.getRawAxis(CommandConstants.AxisRightTrigger) > 0) {
+            _method.shoot(_joystick.getRawAxis(CommandConstants.AxisRightTrigger) * 0.35);
+        }
+        // intake
+        else if (_joystick.getRawAxis(CommandConstants.AxisLeftTrigger) > 0) {
+            _method.shoot(-_joystick.getRawAxis(CommandConstants.AxisLeftTrigger) * 0.5);
+        } 
+        else if (_joystick.getRawButton(CommandConstants.ButtonA)) {
+            _method.shootAmp();
+        } 
+        else if (_joystick.getRawButton(CommandConstants.ButtonX)) {
+            _method.shootSpeaker();
+        } 
+        else {
+            _method.stop();
         }
     }
 

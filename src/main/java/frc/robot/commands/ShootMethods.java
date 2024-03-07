@@ -2,46 +2,59 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.Timer;
 import frc.robot.subsystems.ArmShooter;
-import frc.robot.subsystems.Chassis;
 
 public class ShootMethods {
-    private double speed;
-    private double time;
-    Chassis _chassis;
     ArmShooter _ArmShooter;
     Timer timer = new Timer();
 
-    //object to initialize movement instructions to
-    public ShootMethods (double speed, double time, Chassis _Chassis, ArmShooter _ArmShooter) {
-        this.speed = speed;
-        this.time = time;
-        this._chassis = _Chassis;
-        this._ArmShooter = _ArmShooter;
-    }
-    public ShootMethods (Chassis _Chassis, ArmShooter _ArmShooter) {
-        this.speed = 0;
-        this.time = 0;
-        this._chassis = _Chassis;
+    public ShootMethods (ArmShooter _ArmShooter) {
         this._ArmShooter = _ArmShooter;
     }
 
-    //set meters method
-    public void setSpeed(double speed){
-        this.speed = speed;
-    }
-    //set time method
-    public void setTime(double time){
-        this.time = time;
+    //overloads of different types of shoot
+    public void shoot(double speed){
+        ArmShootCommand _Command = new ArmShootCommand(_ArmShooter, speed);
+        _Command.execute();
     }
 
-    //movement forward method
-    public void shootHigh(){
-        double time = this.time;
-        double speed = this.speed;
+    public void shoot(double speed, double time){
+        timer.reset();
+        timer.start();
+
+        while (!timer.hasElapsed(time)) {
+            ArmShootCommand _Command = new ArmShootCommand(_ArmShooter, speed);
+            _Command.execute();
+        }
+    }
+    
+    public void shoot(double speed, String motorID){
+        ArmShootCommand _Command = new ArmShootCommand(_ArmShooter, speed, motorID);
+        _Command.execute();
+    }
+
+    public void shoot(double speed, double time, String motorID){
+        timer.reset();
+        timer.start();
+
+        while (!timer.hasElapsed(time)) {
+            ArmShootCommand _Command = new ArmShootCommand(_ArmShooter, speed, motorID);
+            _Command.execute();
+        }
+    }
+
+    public void stop()
+    {
+        shoot(0);
+    }
+
+    //shoot to the speaker
+    public void shootSpeaker(){
+        double time;
+        double speed = 1;
 
         timer.reset();
         timer.start();
-        time = .75;
+        time = 0.75;
         while(!timer.hasElapsed(time))
         {
             ArmShootCommand _Command = new ArmShootCommand(_ArmShooter, speed, "B");
@@ -56,20 +69,19 @@ public class ShootMethods {
             _Command.execute();    
         }
     }
-    //turn a certain num of degrees method
-    public void turn(){
-        int time = 0;
-        int turnNum = 0;
-        timer.start();
+
+    //shoot to the amp
+    public void shootAmp(){
+        double time;
+        double speed = 0.35;
+
         timer.reset();
-        timer.restart();
+        timer.start();
 
-        while (!timer.hasElapsed(time))
-        {  
-            _chassis.Drive(turnNum, 0);
+        time = 0.75;
+        while (!timer.hasElapsed(time)) {
+            ArmShootCommand _Command = new ArmShootCommand(_ArmShooter, speed);
+            _Command.execute();
         }
-        _chassis.Drive(0, 0);
-        timer.restart();
     }
-
 }
