@@ -36,9 +36,6 @@ private DifferentialDrive _drive = new DifferentialDrive(_frontRight, _frontLeft
     _frontRight.setInverted(true);
     _backLeft.setInverted(true);
     _backRight.setInverted(true);
-
-    
-
   }
   
 
@@ -51,7 +48,6 @@ private DifferentialDrive _drive = new DifferentialDrive(_frontRight, _frontLeft
     SmartDashboard.putNumber("Back Right Speed", _backRight.get());
 
     _drive.feed();
-
   }
   public void teleoPeriodic() {
   
