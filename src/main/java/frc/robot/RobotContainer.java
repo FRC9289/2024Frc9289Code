@@ -5,10 +5,15 @@
 package frc.robot;
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.subsystems.*;
+import frc.robot.AutonCommands.AutoDrive;
+import frc.robot.AutonCommands.LeftStartAuto;
+import frc.robot.AutonCommands.MiddleStartAuto;
+import frc.robot.AutonCommands.RightStartAuto;
 import frc.robot.commands.*;
 
 /**
@@ -23,6 +28,16 @@ public class RobotContainer {
   private final Joystick _chassisController = new Joystick(0);
   private final Joystick _armController = new Joystick(1);
   private final ArmShooter _shooter = new ArmShooter();
+
+  //initializating commands to put up as choices
+  private final Command leftCommand = new LeftStartAuto(_chassis, _shooter);
+  private final Command middleCommand = new MiddleStartAuto(_chassis, _shooter);
+  private final Command rightCommand = new RightStartAuto(_chassis, _shooter);
+
+  
+  SendableChooser<Command> m_chooser = new SendableChooser<>();
+  
+
   // private final Hanger _hanger = new Hanger();
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
@@ -31,6 +46,13 @@ public class RobotContainer {
     _chassis.setDefaultCommand(new ArcadeDrive(_chassis, _chassisController));
     configureBindings();
     CameraServer.startAutomaticCapture();
+
+    
+
+    //set up choices for autonomous program
+    m_chooser.setDefaultOption("Left Start", leftCommand);
+    m_chooser.addOption("Middle Start", middleCommand);
+    m_chooser.addOption("Right Start", rightCommand);
   }
 
   /**
@@ -56,7 +78,7 @@ public class RobotContainer {
   public Command getAutonomousCommand() {
     // An example command will be run in autonomous
     // return _chassis.Drive(0, 0);
-      return new AutoDrive(_chassis, _shooter);
+      return m_chooser.getSelected();
   //  return new RunCommand(()-> _chassis.autoDrive());
   }
 }
