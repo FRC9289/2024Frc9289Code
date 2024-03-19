@@ -42,10 +42,10 @@ private DifferentialDrive _drive = new DifferentialDrive(_frontRight, _frontLeft
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
-    SmartDashboard.putNumber("Front Left Speed", _frontLeft.get());
-    SmartDashboard.putNumber("Front Right Speed", _frontRight.get());
-    SmartDashboard.putNumber("Back Left Speed", _backLeft.get());
-    SmartDashboard.putNumber("Back Right Speed", _backRight.get());
+    // SmartDashboard.putNumber("Front Left Speed", _frontLeft.get());
+    // SmartDashboard.putNumber("Front Right Speed", _frontRight.get());
+    // SmartDashboard.putNumber("Back Left Speed", _backLeft.get());
+    // SmartDashboard.putNumber("Back Right Speed", _backRight.get());
 
     _drive.feed();
   }

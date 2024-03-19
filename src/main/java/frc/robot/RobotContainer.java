@@ -6,6 +6,7 @@ package frc.robot;
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
@@ -34,8 +35,7 @@ public class RobotContainer {
   private final Command middleCommand = new MiddleStartAuto(_chassis, _shooter);
   private final Command rightCommand = new RightStartAuto(_chassis, _shooter);
 
-  
-  SendableChooser<Command> m_chooser = new SendableChooser<>();
+  SendableChooser<Command> m_chooser;
   
 
   // private final Hanger _hanger = new Hanger();
@@ -47,12 +47,15 @@ public class RobotContainer {
     configureBindings();
     CameraServer.startAutomaticCapture();
 
-    
+     m_chooser = new SendableChooser<>();
+
 
     //set up choices for autonomous program
     m_chooser.setDefaultOption("Left Start", leftCommand);
     m_chooser.addOption("Middle Start", middleCommand);
     m_chooser.addOption("Right Start", rightCommand);
+
+    SmartDashboard.putData("Autonomous Chooser", m_chooser);
   }
 
   /**
