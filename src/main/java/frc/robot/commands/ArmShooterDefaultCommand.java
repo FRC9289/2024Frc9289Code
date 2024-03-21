@@ -28,7 +28,7 @@ public class ArmShooterDefaultCommand extends Command {
         }
         // intake
         else if (_joystick.getRawAxis(CommandConstants.AxisLeftTrigger) > 0) {
-            _shooterMethods.shoot(-_joystick.getRawAxis(CommandConstants.AxisLeftTrigger) * 0.5);
+            _shooterMethods.shoot(-_joystick.getRawAxis(CommandConstants.AxisLeftTrigger) * 0.25);
         } 
         else if (_joystick.getRawButton(CommandConstants.ButtonA)) {
             _shooterMethods.shootAmp();

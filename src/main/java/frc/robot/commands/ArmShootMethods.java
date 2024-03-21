@@ -1,5 +1,7 @@
 package frc.robot.commands;
 
+import com.fasterxml.jackson.databind.node.ArrayNode;
+
 import edu.wpi.first.wpilibj.Timer;
 import frc.robot.subsystems.ArmShooter;
 
@@ -54,7 +56,7 @@ public class ArmShootMethods {
 
         timer.reset();
         timer.start();
-        time = 0.75;
+        time = 0.1;
         while(!timer.hasElapsed(time))
         {
             ArmShootCommand _Command = new ArmShootCommand(_ArmShooter, speed, "B");
@@ -62,12 +64,14 @@ public class ArmShootMethods {
         }
         timer.reset();
         timer.start();
-        time = .65;
+        time = .8;
+        speed = 2;
         while (!timer.hasElapsed(time)) 
         {
             ArmShootCommand _Command = new ArmShootCommand(_ArmShooter, speed);
-            _Command.execute();    
-        }
+            _Command.execute(); 
+        }  
+          
     }
 
     //shoot to the amp
