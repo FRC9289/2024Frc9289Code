@@ -51,4 +51,10 @@ public class ArmShootCommand extends Command
      else
         shooter.shoot(power);
    }
+
+   @Override
+   public void end(boolean interrupted)
+   {
+      shooter.stop();
+   }
 }

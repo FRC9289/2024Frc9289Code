@@ -55,9 +55,9 @@ private DifferentialDrive _drive = new DifferentialDrive(_frontRight, _frontLeft
 
   //turn is for turn robot left/right (little movement)
   //direction positive -> forward, negative -> backward
-  public void Drive(double turn, double direction)
+  public void Drive(double turnMovement, double linearMovement)
   {
-    _drive.arcadeDrive(turn*.85, direction);
+    _drive.arcadeDrive(turnMovement*.85, linearMovement);
     _drive.feed();
   }
 
@@ -67,13 +67,13 @@ private DifferentialDrive _drive = new DifferentialDrive(_frontRight, _frontLeft
     double axis5 = controller.getRawAxis(5);
     SmartDashboard.putNumber("axis 0", axis0);
     SmartDashboard.putNumber("axis 5", axis5);
-    Drive(axis5, -axis0);
+    Drive(axis0, -axis5);
   }
 
-  public void autoDrive(double turn, double direction)
+  public void autoDrive(double turnMovement, double linearMovement)
   {
     //_drive.arcadeDrive(turn, direction);
-    _drive.arcadeDrive(turn, direction);
+    _drive.arcadeDrive(turnMovement, linearMovement);
     _drive.feed();
   }
   

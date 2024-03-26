@@ -42,30 +42,7 @@ public class AutoDrive extends Command {
     // Called every time the scheduler runs while the command is scheduled.
     @Override
     public void execute() {
-        // MovementMethods m1 = new MovementMethods(_chassis);
-        // m1.setSpeed(.5);
-        // m1.setTime(1);
-        // m1.move();
         
-        // ShootMethods s1 = new ShootMethods(_chassis, _ArmShooter);
-        // s1.setSpeed(1);
-        // s1.shootHigh();
-
-        
-        // shooterTimer.reset();
-        // shooterTimer.start();
-        // while(!shooterTimer.hasElapsed(0.75))
-    // // {
-    //     ArmShootCommand _command = new ArmShootCommand(_shooter, 1);
-    //     _command.execute();
-        // }
-        // shooterTimer.reset();
-        // shooterTimer.start();
-        // while (!shooterTimer.hasElapsed(0.65)) 
-        // {
-        //     ArmShootCommand _Command = new ArmShootCommand(_shooter, 1);
-        //     _Command.execute();    
-        // }
      
     }
 
