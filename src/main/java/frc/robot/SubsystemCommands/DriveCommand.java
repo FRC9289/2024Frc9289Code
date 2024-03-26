@@ -13,11 +13,11 @@ public class DriveCommand extends Command{
 
 
     // idk if name needs to get changed
-    public DriveCommand(Chassis chassis, double turn, double direction)
+    public DriveCommand(Chassis chassis, double turnMovement, double linearMovement)
     {
         _chassis = chassis;
-        _turn = turn;
-        _direction = direction;
+        _turn = turnMovement;
+        _direction = linearMovement;
     }
 
     // Called when the command is initially scheduled.

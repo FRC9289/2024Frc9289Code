@@ -15,8 +15,8 @@ public class LeftStartAuto extends SequentialCommandGroup{
     public LeftStartAuto(Chassis chassis, ArmShooter shooter)
     {
         addCommands(
-            new ParallelDeadlineGroup(new ArmShootCommand(shooter, shooterSpeed)).withTimeout(2),
-            new ParallelDeadlineGroup(new DriveCommand(chassis, 1, 0).withTimeout(0.75)).withTimeout(2)
+            new ParallelDeadlineGroup(new ArmShootCommand(shooter, shooterSpeed)).withTimeout(1),
+            new ParallelDeadlineGroup(new DriveCommand(chassis, 0, 1).withTimeout(1))
             
         );
     }
