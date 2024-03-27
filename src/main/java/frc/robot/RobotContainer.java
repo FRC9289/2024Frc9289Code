@@ -14,6 +14,7 @@ import frc.robot.subsystems.*;
 import frc.robot.AutonCommands.AutoDrive;
 import frc.robot.AutonCommands.LeftStartAuto;
 import frc.robot.AutonCommands.MiddleStartAuto;
+import frc.robot.AutonCommands.NonSpeakerStartAuto;
 import frc.robot.AutonCommands.RightStartAuto;
 import frc.robot.commands.*;
 
@@ -34,6 +35,7 @@ public class RobotContainer {
   private final Command leftCommand = new LeftStartAuto(_chassis, _shooter);
   private final Command middleCommand = new MiddleStartAuto(_chassis, _shooter);
   private final Command rightCommand = new RightStartAuto(_chassis, _shooter);
+  private final Command nonSpeakerCommand = new NonSpeakerStartAuto(_chassis);
 
   SendableChooser<Command> m_chooser;
   
@@ -51,7 +53,8 @@ public class RobotContainer {
 
 
     //set up choices for autonomous program
-    m_chooser.setDefaultOption("Left Start", leftCommand);
+    m_chooser.setDefaultOption("Non-Speaker Start", nonSpeakerCommand);
+    m_chooser.addOption("Left Start", leftCommand);
     m_chooser.addOption("Middle Start", middleCommand);
     m_chooser.addOption("Right Start", rightCommand);
 

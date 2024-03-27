@@ -18,6 +18,7 @@ public class DriveCommand extends Command{
         _chassis = chassis;
         _turn = turnMovement;
         _direction = linearMovement;
+        addRequirements(chassis);
     }
 
     // Called when the command is initially scheduled.

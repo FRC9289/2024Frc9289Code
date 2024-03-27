@@ -3,6 +3,7 @@ package frc.robot.commands;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 
 import edu.wpi.first.wpilibj.Timer;
+import frc.robot.SubsystemCommands.ArmShootCommand;
 import frc.robot.subsystems.ArmShooter;
 
 public class ArmShootMethods {

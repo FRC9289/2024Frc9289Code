@@ -1,4 +1,4 @@
-package frc.robot.commands;
+package frc.robot.SubsystemCommands;
 
 import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
 
@@ -47,7 +47,7 @@ public class ArmShootCommand extends Command
    public void execute()
    {
      if(!motorID.equals(""))
-          shooter.shootSignle(motorID, power);
+          shooter.shootSingle(motorID, power);
      else
         shooter.shoot(power);
    }

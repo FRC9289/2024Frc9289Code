@@ -47,7 +47,7 @@ public class ArmShooter extends SubsystemBase {
     shooterMotorB.set(0);
   }
 
-  public void shootSignle(String motorID, double speed)
+  public void shootSingle(String motorID, double speed)
   {
     if(motorID.equals("A"))
       shooterMotorA.set(speed);
