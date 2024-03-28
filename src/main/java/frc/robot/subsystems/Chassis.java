@@ -60,13 +60,14 @@ private DifferentialDrive _drive = new DifferentialDrive(_frontRight, _frontLeft
     //actual movement
     _drive.arcadeDrive(turnMovement*.85, linearMovement);
 
+    _drive.feed();
+    
     //simulate code w/ shuffleboard and "simcode"
     SmartDashboard.putNumber("Front left power", _frontLeft.get());
     SmartDashboard.putNumber("Front right power", _frontRight.get());
     SmartDashboard.putNumber("Back left power", _backLeft.get());
     SmartDashboard.putNumber("Back right power", _backRight.get());
     
-    _drive.feed();
   }
 
   public void TeleOpDrive(Joystick controller)
