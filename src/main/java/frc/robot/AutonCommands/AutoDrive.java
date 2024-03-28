@@ -42,8 +42,22 @@ public class AutoDrive extends Command {
     // Called every time the scheduler runs while the command is scheduled.
     @Override
     public void execute() {
-        
-     
+        autonTimer.reset();
+        autonTimer.restart();
+        autonTimer.start();
+
+        while (!autonTimer.hasElapsed(2)){
+            _chassis.Drive(0, 1);
+        }
+
+        autonTimer.stop();
+        autonTimer.reset();
+        autonTimer.restart();
+        autonTimer.start();
+
+        while (!autonTimer.hasElapsed(3)){
+            _chassis.Drive(0, -1);
+        }
     }
 
     // Called once the command ends or is interrupted.

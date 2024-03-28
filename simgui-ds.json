@@ -1,4 +1,15 @@
 {
+  "Joysticks": {
+    "window": {
+      "visible": false
+    }
+  },
+  "System Joysticks": {
+    "window": {
+      "visible": false
+    }
+  },
+  "disable": true,
   "keyboardJoysticks": [
     {
       "axisConfig": [
