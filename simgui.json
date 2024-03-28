@@ -1,18 +1,16 @@
 {
   "HALProvider": {
     "Other Devices": {
-      "SPARK MAX [3]": {
-        "header": {
-          "open": true
-        }
-      },
-      "SPARK MAX [4]": {
+      "SPARK MAX [1]": {
         "header": {
           "open": true
         }
       }
     },
     "RoboRIO": {
+      "RoboRIO Input": {
+        "open": true
+      },
       "window": {
         "visible": true
       }
@@ -21,25 +19,37 @@
   "NTProvider": {
     "types": {
       "/FMSInfo": "FMSInfo",
-      "/SmartDashboard/Autonomous Chooser": "String Chooser",
-      "/SmartDashboard/SendableChooser[0]": "String Chooser"
+      "/SmartDashboard/Autonomous Chooser": "String Chooser"
+    },
+    "windows": {
+      "/FMSInfo": {
+        "window": {
+          "visible": true
+        }
+      }
     }
   },
   "NetworkTables": {
     "Persistent Values": {
       "open": false
     },
+    "Retained Values": {
+      "open": false
+    },
+    "Transitory Values": {
+      "open": false
+    },
     "retained": {
       "SmartDashboard": {
         "Autonomous Chooser": {
-          "open": true
+          "open": false
         },
-        "open": true
+        "open": false
       }
     }
   },
-  "NetworkTables View": {
-    "visible": false
+  "NetworkTables Info": {
+    "visible": true
   },
   "Plot": {
     "Plot <0>": {
@@ -53,7 +63,10 @@
           ],
           "height": 314
         }
-      ]
+      ],
+      "window": {
+        "visible": false
+      }
     }
   }
 }
