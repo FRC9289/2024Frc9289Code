@@ -19,19 +19,20 @@ public class HangDefaultCommand extends Command {
     @Override
     public void execute()
     {
-        if(_joystick.getPOV() == CommandConstants.PovUp)
+        if(_joystick.getRawButton(CommandConstants.ButtonY))
         {
-            HangCommand _command = new HangCommand(_hanger, 0.65);
+            HangCommand _command = new HangCommand(_hanger, -.3);
             _command.execute();
         }
-        else if(_joystick.getPOV() == CommandConstants.PovDown)
+        else if(_joystick.getRawButton(CommandConstants.ButtonA))
         {
-            HangCommand _command = new HangCommand(_hanger, -0.5);
+            HangCommand _command = new HangCommand(_hanger, .3);
             _command.execute();
         }
         else
         {
-            _hanger.stop();
+            HangCommand _command = new HangCommand(_hanger, 0);
+            _command.execute();
         }
     }
 }

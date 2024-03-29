@@ -4,6 +4,7 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import com.revrobotics.CANSparkMax;
@@ -39,6 +40,9 @@ public class ArmShooter extends SubsystemBase {
     //for direction of movement
     shooterMotorA.set(speed);
     shooterMotorB.set(speed);
+    
+    SmartDashboard.putNumber("shooter motor a power", shooterMotorA.get());
+    SmartDashboard.putNumber("shooter motor b power", shooterMotorB.get());
   }
 
   public void stop()

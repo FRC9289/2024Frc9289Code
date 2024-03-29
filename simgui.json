@@ -10,9 +10,6 @@
     "RoboRIO": {
       "RoboRIO Input": {
         "open": true
-      },
-      "window": {
-        "visible": true
       }
     }
   },
@@ -20,13 +17,6 @@
     "types": {
       "/FMSInfo": "FMSInfo",
       "/SmartDashboard/Autonomous Chooser": "String Chooser"
-    },
-    "windows": {
-      "/FMSInfo": {
-        "window": {
-          "visible": true
-        }
-      }
     }
   },
   "NetworkTables": {

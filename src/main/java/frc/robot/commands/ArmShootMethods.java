@@ -57,7 +57,7 @@ public class ArmShootMethods {
 
         timer.reset();
         timer.start();
-        time = 0.1;
+        time = 1;
         while(!timer.hasElapsed(time))
         {
             ArmShootCommand _Command = new ArmShootCommand(_ArmShooter, speed, "B");
@@ -65,8 +65,8 @@ public class ArmShootMethods {
         }
         timer.reset();
         timer.start();
-        time = .8;
-        speed = 2;
+        time = .5;
+        speed = 1;
         while (!timer.hasElapsed(time)) 
         {
             ArmShootCommand _Command = new ArmShootCommand(_ArmShooter, speed);
@@ -78,7 +78,7 @@ public class ArmShootMethods {
     //shoot to the amp
     public void shootAmp(){
         double time;
-        double speed = 0.35;
+        double speed = 0.2;
 
         timer.reset();
         timer.start();

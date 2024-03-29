@@ -30,9 +30,9 @@ public class ArmShooterDefaultCommand extends Command {
         else if (_joystick.getRawAxis(CommandConstants.AxisLeftTrigger) > 0) {
             _shooterMethods.shoot(-_joystick.getRawAxis(CommandConstants.AxisLeftTrigger) * 0.25);
         } 
-        else if (_joystick.getRawButton(CommandConstants.ButtonA)) {
-            _shooterMethods.shootAmp();
-        } 
+        //else if (_joystick.getRawButton(CommandConstants.ButtonA)) {
+        //    _shooterMethods.shootAmp();
+        //} 
         else if (_joystick.getRawButton(CommandConstants.ButtonX)) {
             _shooterMethods.shootSpeaker();
         } 

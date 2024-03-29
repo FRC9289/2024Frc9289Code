@@ -28,7 +28,7 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private static final Chassis _chassis = Chassis.returnInstance();
   private final Joystick _chassisController = new Joystick(0);
-  private final Joystick _armController = new Joystick(1);
+  private final Joystick _armController = new Joystick(0);
   private final ArmShooter _shooter = new ArmShooter();
 
   //initializating commands to put up as choices
@@ -37,14 +37,17 @@ public class RobotContainer {
   private final Command rightCommand = new RightStartAuto(_chassis, _shooter);
   private final Command nonSpeakerCommand = new NonSpeakerStartAuto(_chassis);
 
+  private final Hanger _hanger = new Hanger();
+
   SendableChooser<Command> m_chooser;
   
 
-  // private final Hanger _hanger = new Hanger();
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the trigger bindings
+    _shooter.setDefaultCommand(new ArmShooterDefaultCommand(_shooter, _chassisController));
+    //_hanger.setDefaultCommand(new HangDefaultCommand(_hanger, _chassisController));
     _chassis.setDefaultCommand(new ArcadeDrive(_chassis, _chassisController));
     configureBindings();
     CameraServer.startAutomaticCapture();
@@ -72,10 +75,6 @@ public class RobotContainer {
    */
   private void configureBindings() 
   {
-    _shooter.setDefaultCommand(new ArmShooterDefaultCommand(_shooter, _armController));
-
-    //uncooment when hanger installed onto the bot
-    // _hanger.setDefaultCommand(new HangDefaultCommand(_hanger, _armController));
   }
 
   /**
@@ -85,7 +84,7 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An example command will be run in autonomous
-      // return m_chooser.getSelected();
-      return new AutoDrive(_chassis, _shooter);
+      return m_chooser.getSelected();
+      //return new AutoDrive(_chassis, _shooter);
   }
 }

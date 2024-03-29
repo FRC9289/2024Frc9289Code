@@ -12,13 +12,13 @@ public class HangCommand extends Command{
    public HangCommand(Hanger _hangMotor, double speed)
    {
         this.hangMotor = _hangMotor;
-        power = speed;
-        addRequirements(_hangMotor);
+        this.power = speed;
+        addRequirements(hangMotor);
    } 
 
    @Override
    public void execute()
    {
-        hangMotor.move(power);
+     hangMotor.move(power);
    }
 }
