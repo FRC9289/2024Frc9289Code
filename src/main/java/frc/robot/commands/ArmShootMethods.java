@@ -3,6 +3,7 @@ package frc.robot.commands;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 
 import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.SubsystemCommands.ArmShootCommand;
 import frc.robot.subsystems.ArmShooter;
 
@@ -33,6 +34,7 @@ public class ArmShootMethods {
     public void shoot(double speed, String motorID){
         ArmShootCommand _Command = new ArmShootCommand(_ArmShooter, speed, motorID);
         _Command.execute();
+
     }
 
     public void shoot(double speed, double time, String motorID){

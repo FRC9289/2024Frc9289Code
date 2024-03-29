@@ -4,6 +4,7 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import com.revrobotics.CANSparkMax;
@@ -39,6 +40,8 @@ public class ArmShooter extends SubsystemBase {
     //for direction of movement
     shooterMotorA.set(speed);
     shooterMotorB.set(speed);
+    
+    
   }
 
   public void stop()
@@ -58,5 +61,7 @@ public class ArmShooter extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+    SmartDashboard.putNumber("shooter moter A", shooterMotorA.get());
+    SmartDashboard.putNumber("Shooter moter B", shooterMotorB.get());
   }
 }

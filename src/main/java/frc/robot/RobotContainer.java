@@ -72,7 +72,7 @@ public class RobotContainer {
    */
   private void configureBindings() 
   {
-    _shooter.setDefaultCommand(new ArmShooterDefaultCommand(_shooter, _armController));
+    _shooter.setDefaultCommand(new ArmShooterDefaultCommand(_shooter, _chassisController));
 
     //uncooment when hanger installed onto the bot
     // _hanger.setDefaultCommand(new HangDefaultCommand(_hanger, _armController));
@@ -85,7 +85,7 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An example command will be run in autonomous
-      // return m_chooser.getSelected();
-      return new AutoDrive(_chassis, _shooter);
+      return m_chooser.getSelected();
+      // return new AutoDrive(_chassis, _shooter);
   }
 }
