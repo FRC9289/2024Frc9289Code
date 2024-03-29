@@ -69,14 +69,35 @@ private DifferentialDrive _drive = new DifferentialDrive(_frontRight, _frontLeft
 
   public void TeleOpDrive(Joystick controller)
   {
+    // gets input from joysticks
     double axis0 = controller.getRawAxis(0);
     double axis5 = controller.getRawAxis(5);
 
+    // get input (pressed) from B button
+    boolean bButton = controller.getRawButton(CommandConstants.ButtonB);
 
+    // defines the turn and linear movement as controller input
+    double turnMovement = axis0;
+    double linearMovement = -axis5;
+
+    // defines how much the speed is scaled by in slow mode
+    double slowScaleSpeed = 0.5;
+
+    // if b button is held down, applies the slow mode scaling
+    if (bButton)
+    {
+      turnMovement *= slowScaleSpeed;
+      linearMovement *= slowScaleSpeed;
+    }
     
+    // log the controller inputs and the values being sent to drive function
     SmartDashboard.putNumber("axis 0", axis0);
     SmartDashboard.putNumber("axis 5", axis5);
-    Drive(axis0, -axis5);
+    SmartDashboard.putNumber("turn movement", turnMovement);
+    SmartDashboard.putNumber("linear movement", linearMovement);
+
+    // drive with specified speed
+    Drive(turnMovement, linearMovement);
   }
 
   public void autoDrive(double turnMovement, double linearMovement)
