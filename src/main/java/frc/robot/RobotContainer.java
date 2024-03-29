@@ -75,6 +75,10 @@ public class RobotContainer {
    */
   private void configureBindings() 
   {
+    _shooter.setDefaultCommand(new ArmShooterDefaultCommand(_shooter, _chassisController));
+
+    //uncooment when hanger installed onto the bot
+    // _hanger.setDefaultCommand(new HangDefaultCommand(_hanger, _armController));
   }
 
   /**

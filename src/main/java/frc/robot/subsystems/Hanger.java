@@ -4,6 +4,7 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Hanger extends SubsystemBase{
@@ -11,14 +12,14 @@ public class Hanger extends SubsystemBase{
     private final int moterCanID11 = 11;
     private final int moterCanID12 = 12;
 
-    private final int speedlimit = 100;
+    private final int speedlimit = 20;
 
     private CANSparkMax hangMotor11 = new CANSparkMax(moterCanID11, MotorType.kBrushless);
     private CANSparkMax hangMotor12 = new CANSparkMax(moterCanID12, MotorType.kBrushless);
 
     public Hanger()
     {
-        // //reset it every time -> to reset encoder specifically to initial settings
+        // //reset it every time -> to reset encosder specifically to initial settings
         hangMotor11.restoreFactoryDefaults();
         hangMotor12.restoreFactoryDefaults();
 
@@ -51,5 +52,9 @@ public class Hanger extends SubsystemBase{
         hangMotor12.set(0);
     }
 
-
+    @Override
+    public void periodic() {
+        SmartDashboard.putNumber("hang motor 11", hangMotor11.get());
+        SmartDashboard.putNumber("hang motor 12", hangMotor12.get());
+    }
 }

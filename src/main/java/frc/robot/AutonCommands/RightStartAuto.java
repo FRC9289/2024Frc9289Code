@@ -13,8 +13,10 @@ public class RightStartAuto extends SequentialCommandGroup{
     public RightStartAuto(Chassis chassis, ArmShooter shooter)
     {
         addCommands(
-            new ParallelDeadlineGroup(new ArmShootCommand(shooter, shooterSpeed)).withTimeout(2),
-            new ParallelDeadlineGroup(new DriveCommand(chassis, 1, 0).withTimeout(0.75)).withTimeout(2)
+            new ArmShootCommand(shooter, shooterSpeed).withTimeout(1),
+            new DriveCommand(chassis, 0, 1).withTimeout(3),
+            new DriveCommand(chassis, -1, 0).withTimeout(0.5),
+            new DriveCommand(chassis, 0, 1).withTimeout(1)
             
         );
         // shoot, go straight, turn left, then go straight again
