@@ -11,14 +11,14 @@ public class Hanger extends SubsystemBase{
     private final int moterCanID11 = 11;
     private final int moterCanID12 = 12;
 
-    private final int speedlimit = 100;
+    private final int speedlimit = 20;
 
     private CANSparkMax hangMotor11 = new CANSparkMax(moterCanID11, MotorType.kBrushless);
     private CANSparkMax hangMotor12 = new CANSparkMax(moterCanID12, MotorType.kBrushless);
 
     public Hanger()
     {
-        // //reset it every time -> to reset encoder specifically to initial settings
+        // //reset it every time -> to reset encosder specifically to initial settings
         hangMotor11.restoreFactoryDefaults();
         hangMotor12.restoreFactoryDefaults();
 
