@@ -59,7 +59,7 @@ public class ArmShootMethods {
 
         timer.reset();
         timer.start();
-        time = 1;
+        time = 1.5;
         while(!timer.hasElapsed(time))
         {
             ArmShootCommand _Command = new ArmShootCommand(_ArmShooter, speed, "B");
@@ -74,7 +74,20 @@ public class ArmShootMethods {
             ArmShootCommand _Command = new ArmShootCommand(_ArmShooter, speed);
             _Command.execute(); 
         }  
-          
+    }
+
+    public void windMotor(){
+        double speed = 1;
+
+        ArmShootCommand _Command = new ArmShootCommand(_ArmShooter, speed, "B");
+        _Command.execute();
+    }
+
+    public void fireNote(){
+        double speed = 1;
+
+        ArmShootCommand _Command = new ArmShootCommand(_ArmShooter, speed);
+        _Command.execute(); 
     }
 
     //shoot to the amp

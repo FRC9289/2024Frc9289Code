@@ -10,7 +10,7 @@ public class NonSpeakerStartAuto extends SequentialCommandGroup{
     public NonSpeakerStartAuto(Chassis chassis)
     {
         addCommands(
-            new DriveCommand(chassis, 0, -.75).withTimeout(10)
+            new DriveCommand(chassis, 0, -.65).withTimeout(2.5)
         );
     }
 }

@@ -45,10 +45,6 @@ public class RobotContainer {
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
-    // Configure the trigger bindings
-    _shooter.setDefaultCommand(new ArmShooterDefaultCommand(_shooter, _chassisController));
-    //_hanger.setDefaultCommand(new HangDefaultCommand(_hanger, _chassisController));
-    _chassis.setDefaultCommand(new ArcadeDrive(_chassis, _chassisController));
     configureBindings();
     CameraServer.startAutomaticCapture();
 
@@ -75,7 +71,10 @@ public class RobotContainer {
    */
   private void configureBindings() 
   {
+    // Configure the trigger bindings
     _shooter.setDefaultCommand(new ArmShooterDefaultCommand(_shooter, _chassisController));
+    _hanger.setDefaultCommand(new HangDefaultCommand(_hanger, _chassisController));
+    _chassis.setDefaultCommand(new ArcadeDrive(_chassis, _chassisController));
 
     //uncooment when hanger installed onto the bot
     // _hanger.setDefaultCommand(new HangDefaultCommand(_hanger, _armController));

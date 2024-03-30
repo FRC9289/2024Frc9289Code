@@ -21,12 +21,12 @@ public class HangDefaultCommand extends Command {
     {
         if(_joystick.getRawButton(CommandConstants.ButtonY))
         {
-            HangCommand _command = new HangCommand(_hanger, -.3);
+            HangCommand _command = new HangCommand(_hanger, -5);
             _command.execute();
         }
-        else if(_joystick.getRawButton(CommandConstants.ButtonA))
+        else if(_joystick.getRawButton(CommandConstants.ButtonB))
         {
-            HangCommand _command = new HangCommand(_hanger, .3);
+            HangCommand _command = new HangCommand(_hanger, 5);
             _command.execute();
         }
         else

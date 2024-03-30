@@ -14,8 +14,8 @@ public class Hanger extends SubsystemBase{
 
     private final int speedlimit = 20;
 
-    private CANSparkMax hangMotor11 = new CANSparkMax(moterCanID11, MotorType.kBrushless);
-    private CANSparkMax hangMotor12 = new CANSparkMax(moterCanID12, MotorType.kBrushless);
+    private CANSparkMax hangMotor11 = new CANSparkMax(moterCanID11, MotorType.kBrushed);
+    private CANSparkMax hangMotor12 = new CANSparkMax(moterCanID12, MotorType.kBrushed);
 
     public Hanger()
     {

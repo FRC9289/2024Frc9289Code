@@ -13,8 +13,9 @@ public class MiddleStartAuto extends SequentialCommandGroup{
     public MiddleStartAuto(Chassis chassis, ArmShooter shooter)
     {
         addCommands(
+            new DriveCommand(chassis, 0, -.65).withTimeout(.5),
             new ArmShootCommand(shooter, shooterSpeed).withTimeout(1),
-            new DriveCommand(chassis, 0, 1).withTimeout(3)
+            new DriveCommand(chassis, 0, -.65).withTimeout(2)
             
         );
         // should shoot, then either go straight or veer slightly right then left

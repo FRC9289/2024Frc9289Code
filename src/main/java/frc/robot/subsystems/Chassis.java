@@ -58,7 +58,7 @@ private DifferentialDrive _drive = new DifferentialDrive(_frontRight, _frontLeft
   public void Drive(double turnMovement, double linearMovement)
   {
     //actual movement
-    _drive.arcadeDrive(turnMovement*.85, linearMovement * .85);
+    _drive.arcadeDrive(turnMovement*1, linearMovement * 1);
 
     _drive.feed();
     
@@ -69,14 +69,14 @@ private DifferentialDrive _drive = new DifferentialDrive(_frontRight, _frontLeft
 
   public void TeleOpDrive(Joystick controller)
   {
-    double axis0 = controller.getRawAxis(0);
-    double axis5 = controller.getRawAxis(5);
+    double axis1 = controller.getRawAxis(1);
+    double axis4 = controller.getRawAxis(4);
 
 
     
-    SmartDashboard.putNumber("axis 0", axis0);
-    SmartDashboard.putNumber("axis 5", axis5);
-    Drive(axis0, -axis5);
+    SmartDashboard.putNumber("axis 0", axis1);
+    SmartDashboard.putNumber("axis 5", axis4);
+    Drive(axis4, -axis1);
   }
 
   public void autoDrive(double turnMovement, double linearMovement)

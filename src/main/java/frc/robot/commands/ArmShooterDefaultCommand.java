@@ -24,7 +24,7 @@ public class ArmShooterDefaultCommand extends Command {
 
         // slowly out
         if (_joystick.getRawAxis(CommandConstants.AxisRightTrigger) > 0) {
-            _shooterMethods.shoot(_joystick.getRawAxis(CommandConstants.AxisRightTrigger) * 0.35);
+            _shooterMethods.shoot(_joystick.getRawAxis(CommandConstants.AxisRightTrigger) * 0.20);
         }
         // intake
         else if (_joystick.getRawAxis(CommandConstants.AxisLeftTrigger) > 0) {
@@ -33,9 +33,18 @@ public class ArmShooterDefaultCommand extends Command {
         //else if (_joystick.getRawButton(CommandConstants.ButtonA)) {
         //    _shooterMethods.shootAmp();
         //} 
+        // else if (_joystick.getRawButton(CommandConstants.ButtonX)) {
+        //     _shooterMethods.shootSpeaker();
+        // } 
+        // fire note
+        else if (_joystick.getRawButton(CommandConstants.ButtonA)) {
+            _shooterMethods.windMotor();
+            _shooterMethods.fireNote();
+        }
+        // wind top motor for fire
         else if (_joystick.getRawButton(CommandConstants.ButtonX)) {
-            _shooterMethods.shootSpeaker();
-        } 
+            _shooterMethods.windMotor();
+        }
         else {
             _shooterMethods.stop();
         }
