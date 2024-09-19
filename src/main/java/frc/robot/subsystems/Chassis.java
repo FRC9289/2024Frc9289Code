@@ -21,6 +21,18 @@ private CANSparkMax _frontLeft = new CANSparkMax(1, MotorType.kBrushed);
 private CANSparkMax _backLeft = new CANSparkMax(2, MotorType.kBrushed);
 private CANSparkMax _frontRight = new CANSparkMax(3, MotorType.kBrushed);
 private CANSparkMax _backRight = new CANSparkMax(4, MotorType.kBrushed);
+
+
+//F -> Front, B -> Back, R -> Right, L -> Left, D -> Drive, T -> Turn
+private CANSparkMax FLDMotor = new CANSparkMax(1, MotorType.kBrushed);
+private CANSparkMax FLTMotor = new CANSparkMax(2, MotorType.kBrushed);
+private CANSparkMax FRDMotor = new CANSparkMax(3, MotorType.kBrushed);
+private CANSparkMax FRTMotor = new CANSparkMax(4, MotorType.kBrushed);
+private CANSparkMax BLDMotor = new CANSparkMax(5, MotorType.kBrushed);
+private CANSparkMax BLTMotor = new CANSparkMax(6, MotorType.kBrushed);
+private CANSparkMax BRDMotor = new CANSparkMax(7, MotorType.kBrushed);
+private CANSparkMax BRTMotor = new CANSparkMax(8, MotorType.kBrushed);
+
 private static final Chassis _chassis = new Chassis();
 
 private DifferentialDrive _drive = new DifferentialDrive(_frontRight, _frontLeft);
