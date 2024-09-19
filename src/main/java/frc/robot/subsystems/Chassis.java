@@ -74,9 +74,6 @@ private DifferentialDrive _drive = new DifferentialDrive(_frontRight, _frontLeft
 
     _drive.feed();
     
-    
-
-    
   }
 
   public void TeleOpDrive(Joystick controller)
