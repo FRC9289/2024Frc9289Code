@@ -84,7 +84,7 @@ private DifferentialDrive _drive = new DifferentialDrive(_frontRight, _frontLeft
 
     
     SmartDashboard.putNumber("axis 0", axis1);
-    SmartDashboard.putNumber("axis 5", axis4);
+    SmartDashboard.putNumber("axis 4", axis4);
     Drive(axis4, -axis1);
   }
 
