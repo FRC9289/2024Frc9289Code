@@ -12,7 +12,7 @@ public class SwerveDrive {
         //revsers the input of the y axis
         y1 *=-1;
 
-        //a, b, c, and d are the speeds of each of the 4 motors, 
+        //a, b, c, and d are the speeds of each of the 4 motors,   
         //with this code (0->1), change as needed depending on the motors
         double a = x1 - x2 * (L / r);
         double b = x1 + x2 * (L / r);
