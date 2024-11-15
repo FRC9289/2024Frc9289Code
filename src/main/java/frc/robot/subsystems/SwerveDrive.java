@@ -56,14 +56,26 @@ public class SwerveDrive {
         BRTMotor.restoreFactoryDefaults();
 
         // //set the speed limit on how fast the motor can go
-        hangMotor11.setSmartCurrentLimit(speedlimit);
-        hangMotor12.setSmartCurrentLimit(speedlimit);
+        FLDMotor.setSmartCurrentLimit(1);
+        FLTMotor.setSmartCurrentLimit(1);
+        FRDMotor.setSmartCurrentLimit(1);
+        FRTMotor.setSmartCurrentLimit(1);
+        BLDMotor.setSmartCurrentLimit(1);
+        BLTMotor.setSmartCurrentLimit(1);
+        BRDMotor.setSmartCurrentLimit(1);
+        BRTMotor.setSmartCurrentLimit(1);
 
         // // shooterMotorB.follow(shooterMotorA);
 
         // //saves changes to motor controller / encoder
-        hangMotor11.burnFlash();
-        hangMotor12.burnFlash();
+        FLDMotor.burnFlash();
+        FLTMotor.burnFlash();
+        FRDMotor.burnFlash();
+        FRTMotor.burnFlash();
+        BLDMotor.burnFlash();
+        BLTMotor.burnFlash();
+        BRDMotor.burnFlash();
+        BRTMotor.burnFlash();
 
     }
 }
