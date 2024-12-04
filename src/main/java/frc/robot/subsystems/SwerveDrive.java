@@ -8,14 +8,14 @@ public class SwerveDrive {
     public static final double W = 20; // equal to width between wheels axles
 
     //F -> Front, B -> Back, R -> Right, L -> Left, D -> Drive, T -> Turn
-    private CANSparkMax FLDMotor = new CANSparkMax(1, MotorType.kBrushless); // FIELD
-    private CANSparkMax FLTMotor = new CANSparkMax(2, MotorType.kBrushless); // FILLET
-    private CANSparkMax FRDMotor = new CANSparkMax(3, MotorType.kBrushless); // FORD
-    private CANSparkMax FRTMotor = new CANSparkMax(4, MotorType.kBrushless); // FART
-    private CANSparkMax BLDMotor = new CANSparkMax(5, MotorType.kBrushless); // BLEED
-    private CANSparkMax BLTMotor = new CANSparkMax(6, MotorType.kBrushless); // SANDWHICH
-    private CANSparkMax BRDMotor = new CANSparkMax(7, MotorType.kBrushless); // BREAD
-    private CANSparkMax BRTMotor = new CANSparkMax(8, MotorType.kBrushless); // brat
+    private static CANSparkMax FLDMotor = new CANSparkMax(1, MotorType.kBrushless); // FIELD
+    private static CANSparkMax FLTMotor = new CANSparkMax(2, MotorType.kBrushless); // FILLET
+    private static CANSparkMax FRDMotor = new CANSparkMax(3, MotorType.kBrushless); // FORD
+    private static CANSparkMax FRTMotor = new CANSparkMax(4, MotorType.kBrushless); // FART
+    private static CANSparkMax BLDMotor = new CANSparkMax(5, MotorType.kBrushless); // BLEED
+    private static CANSparkMax BLTMotor = new CANSparkMax(6, MotorType.kBrushless); // SANDWHICH
+    private static CANSparkMax BRDMotor = new CANSparkMax(7, MotorType.kBrushless); // BREAD
+    private static CANSparkMax BRTMotor = new CANSparkMax(8, MotorType.kBrushless); // brat
 
     //x1 & y1 are the x and y axis from the strafing joystick
     // x2 is the x axis from the rotation joystick
@@ -33,16 +33,17 @@ public class SwerveDrive {
         double d = y1 + x2 * (W / r);
 
         //speeds
-        double backRightSpeed = Math.sqrt((a * a) + (d * d));
-        double backLeftSpeed = Math.sqrt((a * a) + (c * c));
-        double frontRightSpeed = Math.sqrt((b * b) + (d * d));
-        double frontLeftSpeed = Math.sqrt((b * b) + (c * c));
+        BRDMotor.set(Math.sqrt((a * a) + (d * d)));
+        BLDMotor.set(Math.sqrt((a * a) + (c * c)));
+        FRDMotor.set(Math.sqrt((b * b) + (d * d)));
+        FLDMotor.set(Math.sqrt((b * b) + (c * c)));
 
         //Angle of each motor
-        double backRightAngle = Math.atan2(a, d) / Math.PI;
-        double backLeftAngle = Math.atan2(a, c) / Math.PI;
-        double frontRightAngle = Math.atan2(b, d) / Math.PI;
-        double frontLeftAngle = Math.atan2(b, c) / Math.PI;
+        FRTMotor.set(Math.atan2(a, d) / Math.PI);
+        BLTMotor.set(Math.atan2(a, c) / Math.PI);
+        FRTMotor.set(Math.atan2(b, d) / Math.PI);
+        FLTMotor.set(Math.atan2(b, c) / Math.PI);
+
     }
     public SwerveDrive(){
         // //reset it every time -> to reset encosder specifically to initial settings
@@ -65,8 +66,6 @@ public class SwerveDrive {
         BRDMotor.setSmartCurrentLimit(1);
         BRTMotor.setSmartCurrentLimit(1);
 
-        // // shooterMotorB.follow(shooterMotorA);
-
         // //saves changes to motor controller / encoder
         FLDMotor.burnFlash();
         FLTMotor.burnFlash();
@@ -78,4 +77,5 @@ public class SwerveDrive {
         BRTMotor.burnFlash();
 
     }
+    
 }

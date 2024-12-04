@@ -18,10 +18,10 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 public class Chassis extends SubsystemBase {
   /** Creates a new Chassis. */
 
-private CANSparkMax _frontLeft = new CANSparkMax(1, MotorType.kBrushed);
-private CANSparkMax _backLeft = new CANSparkMax(2, MotorType.kBrushed);
-private CANSparkMax _frontRight = new CANSparkMax(3, MotorType.kBrushed);
-private CANSparkMax _backRight = new CANSparkMax(4, MotorType.kBrushed);
+// private CANSparkMax _frontLeft = new CANSparkMax(1, MotorType.kBrushed);
+// private CANSparkMax _backLeft = new CANSparkMax(2, MotorType.kBrushed);
+// private CANSparkMax _frontRight = new CANSparkMax(3, MotorType.kBrushed);
+// private CANSparkMax _backRight = new CANSparkMax(4, MotorType.kBrushed);
 
 
 //F -> Front, B -> Back, R -> Right, L -> Left, D -> Drive, T -> Turn
@@ -36,7 +36,7 @@ private CANSparkMax BRTMotor = new CANSparkMax(8, MotorType.kBrushless); // brat
 
 private static final Chassis _chassis = new Chassis();
 
-private DifferentialDrive _drive = new DifferentialDrive(_frontRight, _frontLeft);
+//private DifferentialDrive _drive = new DifferentialDrive(_frontRight, _frontLeft);
 
 
   public Chassis() 
@@ -70,7 +70,7 @@ private DifferentialDrive _drive = new DifferentialDrive(_frontRight, _frontLeft
     SmartDashboard.putNumber("BRD", BRDMotor.get());
     SmartDashboard.putNumber("BRT", BRTMotor.get());
 
-    _drive.feed();
+    //_drive.feed();
   }
   public void teleoPeriodic() {
   
@@ -81,9 +81,9 @@ private DifferentialDrive _drive = new DifferentialDrive(_frontRight, _frontLeft
   public void Drive(double turnMovement, double linearMovement)
   {
     //actual movement
-    _drive.arcadeDrive(turnMovement*1, linearMovement * 1);
+    // _drive.arcadeDrive(turnMovement*1, linearMovement * 1);
 
-    _drive.feed();
+    // _drive.feed();
     
   }
 
@@ -104,8 +104,8 @@ private DifferentialDrive _drive = new DifferentialDrive(_frontRight, _frontLeft
   public void autoDrive(double turnMovement, double linearMovement)
   {
     //_drive.arcadeDrive(turn, direction);
-    _drive.arcadeDrive(turnMovement, linearMovement);
-    _drive.feed();
+    // _drive.arcadeDrive(turnMovement, linearMovement);
+    // _drive.feed();
   }
   
   public static Chassis returnInstance()
