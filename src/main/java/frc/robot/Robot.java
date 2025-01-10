@@ -5,12 +5,15 @@
 package frc.robot;
 
 import java.util.concurrent.TimeUnit;
-
+import frc.robot.SubsystemCommands.WheelDrive;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotBase;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import frc.robot.SubsystemCommands.WheelDrive;
 import frc.robot.subsystems.Chassis;
+import frc.robot.subsystems.SwerveDrive;
 import edu.wpi.first.wpilibj.Timer;
 // import edu.wpi.first.wpilibj.cameraserver;
 // import edu.wpi.first.wpilibj.IteractiveRobot;
@@ -26,7 +29,13 @@ public class Robot extends TimedRobot
   private Command m_autonomousCommand;
   private Chassis _chassis = Chassis.returnInstance();
   private double time;
-  
+
+  private WheelDrive bR;
+  private WheelDrive bL;
+  private WheelDrive fR;
+  private WheelDrive fL;
+  private SwerveDrive swerveDrive;
+  private Joystick joystick = new Joystick (0);
 
   Timer autoTimer= new Timer();
 
@@ -42,6 +51,11 @@ public class Robot extends TimedRobot
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
+    
+    bR = new WheelDrive(0, 1, 0);
+    bL = new WheelDrive(2, 3, 1);
+    fR = new WheelDrive(4, 5, 2);
+    fL = new WheelDrive(6, 7, 3);
   }
 
   /**
@@ -104,6 +118,7 @@ public class Robot extends TimedRobot
   // double turn = joy1.getRawAxis(4)*0.3;
   // double left = speed + turn;
   // double right = speed - turn;e
+  swerveDrive.drive (joystick.getRawAxis (1), joystick.getRawAxis (0), joystick.getRawAxis (4));
   
   }
   @Override
