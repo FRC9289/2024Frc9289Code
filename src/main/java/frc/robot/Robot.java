@@ -4,16 +4,10 @@
 
 package frc.robot;
 
-import java.util.concurrent.TimeUnit;
-
-import edu.wpi.first.wpilibj.RobotBase;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import frc.robot.subsystems.Chassis;
-import edu.wpi.first.wpilibj.Timer;
-// import edu.wpi.first.wpilibj.cameraserver;
-// import edu.wpi.first.wpilibj.IteractiveRobot;
+import frc.robot.subsystems.Drivetrain;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -21,22 +15,16 @@ import edu.wpi.first.wpilibj.Timer;
  * the package after creating this project, you must also update the build.gradle file in the
  * project.
  */
-public class Robot extends TimedRobot 
-{
+public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
-  private Chassis _chassis = Chassis.returnInstance();
-  private double time;
-  
-
-  Timer autoTimer= new Timer();
+  private Drivetrain drivetrain = Drivetrain.getInstance();
 
   private RobotContainer m_robotContainer;
-  
+
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
    */
-
   @Override
   public void robotInit() {
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
@@ -62,7 +50,9 @@ public class Robot extends TimedRobot
 
   /** This function is called once each time the robot enters Disabled mode. */
   @Override
-  public void disabledInit() {}
+  public void disabledInit() {
+    drivetrain.setAllIdleMode(true);
+  }
 
   @Override
   public void disabledPeriodic() {}
@@ -70,21 +60,17 @@ public class Robot extends TimedRobot
   /** This autonomous runs the autonomous command selected by your {@link RobotContainer} class. */
   @Override
   public void autonomousInit() {
-
     m_autonomousCommand = m_robotContainer.getAutonomousCommand();
-    
-    if(m_autonomousCommand != null)
-    {
+
+    // schedule the autonomous command (example)
+    if (m_autonomousCommand != null) {
       m_autonomousCommand.schedule();
     }
   }
 
   /** This function is called periodically during autonomous. */
   @Override
-  public void autonomousPeriodic() { 
-    
-
-  }
+  public void autonomousPeriodic() {}
 
   @Override
   public void teleopInit() {
@@ -95,17 +81,15 @@ public class Robot extends TimedRobot
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
     }
+
+    drivetrain.resetAllEncoders();
+    drivetrain.setAllIdleMode(true);
   }
 
   /** This function is called periodically during operator control. */
   @Override
-  public void teleopPeriodic() {
-  // double speed = -joy1.getRawAxis(1) * 0.6;
-  // double turn = joy1.getRawAxis(4)*0.3;
-  // double left = speed + turn;
-  // double right = speed - turn;e
-  
-  }
+  public void teleopPeriodic() {}
+
   @Override
   public void testInit() {
     // Cancels all running commands at the start of test mode.
