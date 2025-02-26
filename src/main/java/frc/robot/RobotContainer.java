@@ -15,11 +15,11 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.subsystems.*;
-import frc.robot.AutonCommands.AutoDrive;
-import frc.robot.AutonCommands.LeftStartAuto;
-import frc.robot.AutonCommands.MiddleStartAuto;
-import frc.robot.AutonCommands.NonSpeakerStartAuto;
-import frc.robot.AutonCommands.RightStartAuto;
+// import frc.robot.AutonCommands.AutoDrive;
+// import frc.robot.AutonCommands.LeftStartAuto;
+// import frc.robot.AutonCommands.MiddleStartAuto;
+// import frc.robot.AutonCommands.NonSpeakerStartAuto;
+// import frc.robot.AutonCommands.RightStartAuto;
 import frc.robot.commands.*;
 
 /**
